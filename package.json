@@ -2,7 +2,7 @@
   "name": "sling",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hanspistorstetson.github.io/slackyhans-frontend/",
+  "homepage": "https://hanspistorstetson.github.io/slackyhans_frontend/",
   "devDependencies": {
     "babel-eslint": "^7.0.0",
     "eslint": "^3.8.1",
@@ -37,7 +37,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "upload": "node scripts/upload.js",
-    "deploy": "rm -rf build && npm run build && npm run upload",
+    "deploy": "npm run build && npm run upload",
     "predeploy": "npm run build",
     "gh-deploy": "gh-pages -d build"
   }
