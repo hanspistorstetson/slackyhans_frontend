@@ -70,22 +70,24 @@ class Room extends Component {
     const moreMessages = this.props.pagination.total_pages > this.props.pagination.page_number;
 
     return (
-      <div style={{ display: 'flex', height: '100vh' }}>
-        <RoomSidebar
-          room={this.props.room}
-          currentUser={this.props.currentUser}
-          presentUsers={this.props.presentUsers}
-        />
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <RoomNavbar room={this.props.room} />
-          <MessageList
-            moreMessages={moreMessages}
-            messages={this.props.messages}
-            onLoadMore={this.handleLoadMore}
-            ref={(c) => { this.messageList = c; }}
-            loadingOlderMessages={this.props.loadingOlderMessages}
+      <div>
+        <div style={{ display: 'flex', height: '100vh' }}>
+          <RoomSidebar
+            room={this.props.room}
+            currentUser={this.props.currentUser}
+            presentUsers={this.props.presentUsers}
           />
-          <MessageForm onSubmit={this.handleMessageCreate} />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <RoomNavbar room={this.props.room} />
+            <MessageList
+              moreMessages={moreMessages}
+              messages={this.props.messages}
+              onLoadMore={this.handleLoadMore}
+              ref={(c) => { this.messageList = c; }}
+              loadingOlderMessages={this.props.loadingOlderMessages}
+            />
+            <MessageForm onSubmit={this.handleMessageCreate} />
+          </div>
         </div>
       </div>
     );

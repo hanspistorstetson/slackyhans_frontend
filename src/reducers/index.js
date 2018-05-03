@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
 import session from './session';
 import rooms from './rooms';
+import users from './users';
 import room from './room';
 
 const appReducer = combineReducers({
@@ -9,6 +10,7 @@ const appReducer = combineReducers({
   session,
   rooms,
   room,
+  users,
 });
 
 export default function (state, action) {

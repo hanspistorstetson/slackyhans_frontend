@@ -82,6 +82,12 @@ type Props = {
 
 const Sidebar = ({ rooms, router, onLogoutClick }: Props) =>
   <div className={css(styles.sidebar)}>
+    <Link to="/" className={css(styles.link)} activeClassName={css(styles.activeLink)}>
+      <div className={css(styles.badge)}>
+        <span>Home</span>
+      </div>
+    </Link>
+    <br />
     {rooms.map(room => <RoomLink key={room.id} room={room} />)}
     <Link
       to="/"

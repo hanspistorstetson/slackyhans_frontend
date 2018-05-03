@@ -5,7 +5,7 @@ import { css, StyleSheet } from 'aphrodite';
 const styles = StyleSheet.create({
   navbar: {
     padding: '15px',
-    background: '#fff',
+    background: '#ddd',
     borderBottom: '1px solid rgb(240,240,240)',
   },
 });

@@ -1,7 +1,15 @@
 // @flow
-import React from 'react';
-import { Link } from 'react-router';
-import { css, StyleSheet } from 'aphrodite';
+import React, { Component } from 'react';
+import {
+    connect,
+} from 'react-redux';
+import {
+    Link,
+} from 'react-router';
+import {
+    css,
+    StyleSheet,
+} from 'aphrodite';
 
 const styles = StyleSheet.create({
   navbar: {
@@ -17,6 +25,7 @@ const styles = StyleSheet.create({
     color: '#555459',
     fontSize: '22px',
     fontWeight: 'bold',
+    margin: 'auto',
     ':hover': {
       textDecoration: 'none',
     },
@@ -24,11 +33,31 @@ const styles = StyleSheet.create({
       textDecoration: 'none',
     },
   },
+
+  user: {
+    alignSelf: 'flex-end',
+  },
 });
 
-const Navbar = () =>
-  <nav className={css(styles.navbar)}>
-    <Link to="/" className={css(styles.link)}>Sling</Link>
-  </nav>;
+type Props = {
+  currentUser: Object
+}
 
-export default Navbar;
+class Navbar extends Component {
+  props: Props
+
+  render() {
+    return (<nav className={css(styles.navbar)} >
+      <Link to="/" className={css(styles.link)}> Slacky-Hans </Link>
+      {Object.keys(this.props.currentUser).length !== 0 && <Link to="/me"className={css(styles.link)}> {this.props.currentUser.username} </Link>}
+    </nav >
+    ); }
+
+  }
+
+
+export default connect(
+    state => ({
+      currentUser: state.session.currentUser,
+    }), {}
+)(Navbar);

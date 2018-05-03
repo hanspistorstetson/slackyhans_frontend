@@ -6,6 +6,8 @@ import { fetchUserRooms } from './rooms';
 const API_URL = process.env.REACT_APP_API_URL;
 const WEBSOCKET_URL = API_URL.replace(/(https|http)/, 'ws').replace('/api', '');
 
+
+
 function connectToSocket(dispatch) {
   const token = JSON.parse(localStorage.getItem('token'));
   const socket = new Socket(`${WEBSOCKET_URL}/socket`, {

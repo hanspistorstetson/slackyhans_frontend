@@ -7,6 +7,7 @@ import Home from '../Home';
 import NotFound from '../../components/NotFound';
 import Login from '../Login';
 import Signup from '../Signup';
+import UserInfo from '../UserInfo';
 import MatchAuthenticated from '../../components/MatchAuthenticated';
 import RedirectAuthenticated from '../../components/RedirectAuthenticated';
 import Sidebar from '../../components/Sidebar';
@@ -54,10 +55,11 @@ class App extends Component {
             <MatchAuthenticated exactly pattern="/" component={Home} {...authProps} />
             <RedirectAuthenticated pattern="/login" component={Login} {...authProps} />
             <RedirectAuthenticated pattern="/signup" component={Signup} {...authProps} />
+            <MatchAuthenticated pattern="/me" component={UserInfo} {...authProps} />
             <MatchAuthenticated pattern="/r/:id" component={Room} {...authProps} />
             <Miss component={NotFound} />
           </div>
-        )}
+          )}
       </BrowserRouter>
     );
   }
